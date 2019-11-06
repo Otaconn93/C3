@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author Shamil Gradov
  */
-public class Familie {
+public class Familie implements Iterable<String>{
     private ArrayList<String> mitglieder = new ArrayList<String>();
 
     public Familie(String vater, String mutter) throws IllegalArgumentException{
@@ -20,6 +21,12 @@ public class Familie {
 
         mitglieder.add(kind);
     }
+
+    @Override
+    public Iterator<String> iterator() {
+        return mitglieder.listIterator();
+    }
+
     public enum Familienmitglied{
         VATER,MUTTER,KINDER
     }
